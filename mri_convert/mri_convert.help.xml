@@ -139,9 +139,9 @@ The main and aux volumes should overlap very closely. If they do not, use tkregi
       <argument>--like name</argument>
       <explanation>output is embedded in a volume like name, or in stats-table like name (measure, columns, rows)</explanation> 
       <argument>--crop &lt;x&gt; &lt;y&gt; &lt;z&gt; </argument>
-      <explanation>crop to 256 around center (x,y,z) </explanation> 
+      <explanation>crop to 256 around center (x,y,z) where x,y,z are the voxel indices (col, row, slice) of the center </explanation> 
       <argument>--cropsize &lt;dx&gt; &lt;dy&gt; &lt;dz&gt;</argument> 
-      <explanation>crop to size &lt;dx, dy, dz&gt;</explanation> 
+      <explanation>crop to size &lt;dx, dy, dz&gt; measured in voxels</explanation> 
       <argument>--cutends ncut </argument>
       <explanation>remove ncut slices from the ends</explanation> 
       <argument>--slice-crop s_start s_end </argument>
