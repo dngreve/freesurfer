@@ -17,6 +17,7 @@ set fmax    = 5;
 set label = ();
 set UseTkSurfer = 0;
 set curv = curv
+set altargs = ()
 
 set tmpdir = ();
 set cleanup = 1;
@@ -71,7 +72,7 @@ if(! $UseTkSurfer) then
     if($#label) set surfarg = "$surfarg":"label=$label"
     set cmd = ($cmd $surfarg)
   end
-  set cmd = ($cmd -viewport 3d)
+  set cmd = ($cmd -viewport 3d $altargs)
 else
   ### tksurfer ####----------------------------------------------
   set cmd = (tksurfer $subject $hemi $surflist0[1] -fminmax $fthresh $fmax)
@@ -228,10 +229,12 @@ while( $#argv != 0 )
       set echo = 1;
       breaksw
 
+
     default:
-      echo ERROR: Flag $flag unrecognized. 
-      echo $cmdline
-      exit 1
+      set altargs = ($altargs $flag)
+      #echo ERROR: Flag $flag unrecognized. 
+      #echo $cmdline
+      #exit 1
       breaksw
   endsw
 
