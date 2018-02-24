@@ -499,7 +499,7 @@ int main(int argc, char *argv[]) {
     if (replace_only)
     {
       printf("Replacing %d and propagating source list\n",nReplace);
-      OutVol = MRIcopy(InVol, NULL) ;
+      //OutVol = MRIcopy(InVol, NULL) ;
       for(n=0; n < nReplace; n++) 
       {
 	printf("%2d:  %4d %4d\n",n+1,SrcReplace[n],TrgReplace[n]);
@@ -510,7 +510,7 @@ int main(int argc, char *argv[]) {
     {
       printf("Replacing %d\n",nReplace);
       for(n=0; n < nReplace; n++) printf("%2d:  %4d %4d\n",n+1,SrcReplace[n],TrgReplace[n]);
-      OutVol = MRIreplaceList(InVol, SrcReplace, TrgReplace, nReplace, MaskVol, NULL);
+      OutVol = MRIreplaceList(InVol, SrcReplace, TrgReplace, nReplace, MaskVol, OutVol);
     }
   }
 
